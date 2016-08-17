@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Borrow memo</title>
+    <link rel="stylesheet" href="styles/css/main.css">
+</head>
+<body ng-app="borrow_memo">
+    <div class="container">
+
+        <header>Borrow Memo</header>
+        <nav ng-controller="">
+            <ul class="nav nav-tabs">
+                <li role="presentation" ng-class = "{'active' : $location.path() == '/london'}"><a href="#/london">London</a></li>
+                <li role="presentation" ng-class = "{'active' : $location.path() == '/madrid'}"><a href="#/madrid">Madrid</a></li>
+                <li role="presentation" ng-class = "{'active' : $location.path() == '/warsaw'}"><a href="#/warsaw">Warsaw</a></li>
+                <li role="presentation" ng-class = "{'active' : $location.path() == '/banglore'}"><a href="#/banglore">Banglore</a></li>
+            </ul>
+        </nav>
+        <selection ng-view></selection>
+    </div>
+
+
+    <!--scripts-->
+    <script src="scripts/app.js"></script>
+    <script src="libs/angular.min.js"></script>
+    <script src="libs/angular-ui-router.min.js"></script>
+
+    <!--controllers-->
+    <script src="scripts/controllers/ItemsListController.js"></script>
+    <script src="scripts/controllers/LoginController.js"></script>
+
+
+
+
+</body>
+</html>
