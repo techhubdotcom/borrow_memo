@@ -6,6 +6,17 @@ angular.module('borrow_memo').controller('ItemsListCtrl', ['$scope', 'AuthServic
 
 
     $scope.items=BorrowedItems.resultListNoReturned;
+    $scope.showedBorrowed = true;
+
+    $scope.showReturned = function(){
+        $scope.showedBorrowed=false;
+        $scope.items=BorrowedItems.resultListReturned;
+    }
+
+    $scope.showBorrowed = function(){
+        $scope.showedBorrowed=true;
+        $scope.items=BorrowedItems.resultListNoReturned;
+    }
 
 
 

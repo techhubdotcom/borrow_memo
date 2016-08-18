@@ -12,17 +12,15 @@
 
         <header>Borrow Memo</header>
         <nav ng-hide="!security.isAuthenticatedUser()">
-            <ul class="nav nav-tabs">
+            <ul class="city-tabs">
                 <li role="presentation" ng-class = "{'active' : $location.path() == '/banglore'}"><a href="#/banglore">Banglore</a></li>
                 <li role="presentation" ng-class = "{'active' : $location.path() == '/warsaw'}"><a href="#/warsaw">Warsaw</a></li>
                 <li role="presentation" ng-class = "{'active' : $location.path() == '/madrid'}"><a href="#/madrid">Madrid</a></li>
                 <li role="presentation" ng-class = "{'active' : $location.path() == '/london'}"><a href="#/london">London</a></li>
-
-
             </ul>
         </nav>
-        <selection ng-view></selection>
     </div>
+    <selection ng-view></selection>
 
 
     <!--scripts-->

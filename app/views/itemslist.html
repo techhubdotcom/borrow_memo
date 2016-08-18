@@ -1,28 +1,41 @@
 
+
 <input type="button" id="logout-btn" value="Sign out" ng-click="logoutUser()"/>
+
 <aside id="new-item-aside">
     <div>
-        <span>Full Name:</span><input type="text" placeholder="Jono the sword master" ng-model="postData.name" required>
+        <span>Full Name:</span><input type="text" placeholder="Jono the sword master" ng-model="postData.name" required/>
     </div>
     <div>
-        <span>Company:</span><input type="text" placeholder="TechHub" ng-model="postData.company" ng-model="postData.company" required>
+        <span>Company:</span><input type="text" placeholder="TechHub" ng-model="postData.company" ng-model="postData.company" required/>
     </div>
     <div>
-        <span>What is being borrowed?</span><input type="text" placeholder="HDMI cable, Paper cutter..." ng-model="postData.item" required>
+        <span>What is being borrowed?</span><input type="text" placeholder="HDMI cable, Paper cutter..." ng-model="postData.item" required/>
     </div>
     <div>
         <select name="Location" ng-model="postData.location">
-            <option value="london">London</option>
-            <option value="madrid">Madrid</option>
-            <option value="warsaw">Warsaw</option>
-            <option value="banglore">Banglore</option>
+            <option value="London">London</option>
+            <option value="Madrid">Madrid</option>
+            <option value="Warsaw">Warsaw</option>
+            <option value="Banglore">Banglore</option>
         </select>
     </div>
 
-    <input type="button" value="Add memo" ng-click="saveItem(postData)">
+    <input type="button" value="Add memo" ng-click="saveItem(postData)"/>
 </aside>
+
+<section id="search-details">
+        <ul class="borrows-tabs">
+            <li role="presentation" ng-class = "{'active' : showedBorrowed == false}"><a ng-click="showReturned()">Returned</a></li>
+            <li role="presentation" ng-class = "{'active' : showedBorrowed == true}"><a ng-click="showBorrowed()">Borrowed</a></li>
+        </ul>
+</section>
+
+
+
 <section id="table-items">
-    <table class="table">
+
+    <table id="table-borrow">
         <thead>
         <tr>
             <th>Date</th>

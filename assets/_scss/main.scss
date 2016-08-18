@@ -28,29 +28,29 @@ input {
 
 li{
   list-style-type: none;
+  float: right;
+  text-transform: uppercase;
+  a {
+    color: black;
+    text-decoration: underline;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  a:link, a:hover, a:active, a:visited{
+    text-decoration: underline;
+  }
+  &.active{
+    a{
+      color: $yellow-color;
+      font-weight: bold;
+    }
+  }
 }
 
 #menu-container{
   li{
-    float: right;
-    margin: 70px 30px;
-    text-transform: uppercase;
-    a {
-      color: black;
-      text-decoration: underline;
-      cursor: pointer;
-      width: 100%;
-    }
-
-    a:link, a:hover, a:active, a:visited{
-      text-decoration: underline;
-    }
-    &.active{
-      a{
-        color: $yellow-color;
-        font-weight: bold;
-      }
-    }
+    margin: 70px 30px 40px;
   }
 }
 
@@ -108,7 +108,7 @@ li{
   font-weight: 500;
   margin: 10px 0;
   text-transform: uppercase;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   cursor: pointer;
 }
 
@@ -140,7 +140,33 @@ li{
 
 }
 
+#search-details{
+  clear: right;
+  li{
+    font-size: 0.8rem;
+    margin: 0 30px 0 0;
+  }
+
+}
+
+
 #table-items{
+  margin: 80px 80px 0 20px
+  td{
+    width:100px;
+    text-align: center;
+  }
+  #table-borrow{
+    clear: right;
+    float: right;
+  }
+  input[type='button'] {
+    border: medium none;
+    font-size: 0.9rem;
+    padding: 5px;
+    width: 80px;
+    background-color: #bebebe;
+  }
 
 }
 
