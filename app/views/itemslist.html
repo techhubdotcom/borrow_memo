@@ -1,0 +1,42 @@
+
+<input type="button" id="logout-btn" value="Sign out" ng-click="logoutUser()"/>
+<aside id="new-item-aside">
+    <div>
+        <span>Full Name:</span><input type="text" placeholder="Jono the sword master" ng-model="postData.name" required>
+    </div>
+    <div>
+        <span>Company:</span><input type="text" placeholder="TechHub" ng-model="postData.company" ng-model="postData.company" required>
+    </div>
+    <div>
+        <span>What is being borrowed?</span><input type="text" placeholder="HDMI cable, Paper cutter..." ng-model="postData.item" required>
+    </div>
+    <div>
+        <select name="Location" ng-model="postData.location">
+            <option value="london">London</option>
+            <option value="madrid">Madrid</option>
+            <option value="warsaw">Warsaw</option>
+            <option value="banglore">Banglore</option>
+        </select>
+    </div>
+
+    <input type="button" value="Add memo" ng-click="saveItem(postData)">
+</aside>
+<section id="table-items">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th>Location</th>
+            <th>Name</th>
+            <th>Company</th>
+            <th>Item</th>
+            <th>Returned</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in items" borrowed-element item="item"></tr>
+
+
+        </tbody>
+    </table>
+</section>

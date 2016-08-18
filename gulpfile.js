@@ -14,7 +14,9 @@ var paths = {
     'libs': [
         './bower_components/angular/angular.min.js',
         './bower_components/angular-route/angular-route.min.js',
-        './bower_components/ng-dialog/js/ngDialog.min.js'
+        './bower_components/ng-dialog/js/ngDialog.min.js',
+        './bower_components/angularfire/dist/angularfire.min.js',
+        './bower_components/firebase/firebase.js'
     ],
     'libs_css' :['./bower_components/ng-dialog/css/ngDialog.min.css',
         './bower_components/ng-dialog/css/ngDialog-theme-default.min.css',],

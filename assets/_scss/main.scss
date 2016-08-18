@@ -4,8 +4,143 @@ body{
   background-color: $gray-color;
   padding: 0px;
   margin: 0px;
+  width: 100vw;
+  height: 100vh;
+  font-family: $fonts;
 }
 
 header{
+  font-size: 1.2rem;
+}
+
+.ngdialog.ngdialog-theme-default .ngdialog-content{
+  width: 350px;
+  text-align: center;
+}
+
+input {
+  width: 250px;
+  font-size: 0.9rem;
+  //font-family: $fonts;
+  border: none;
+  padding: 8px;
+}
+
+li{
+  list-style-type: none;
+}
+
+#menu-container{
+  li{
+    float: right;
+    margin: 70px 30px;
+    text-transform: uppercase;
+    a {
+      color: black;
+      text-decoration: underline;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    a:link, a:hover, a:active, a:visited{
+      text-decoration: underline;
+    }
+    &.active{
+      a{
+        color: $yellow-color;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+#login{
+  height: 158px;
+  padding: 15px 0 20px 20px;
+  width: 290px;
+  background-color: $yellow-light-color;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -145px;
+  margin-top: -79px;
+
+  #login_form{
+    input{
+      margin: 10px 0px;
+    }
+  }
+
+
+
+  input.ng-invalid.ng-dirty{
+    //border: 1px solid $red-color;
+  }
+
+  input[type='submit'] {
+    background-color: $yellow-color;
+    color: #000000;
+    border: 0 none;
+    border-radius: 0;
+    font-weight: 500;
+    margin: 10px 0;
+    width: 265px;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    cursor: pointer;
+  }
+  .login-btn:disabled, .login-btn:hover{
+    background-color: #e5cf44;
+  }
 
 }
+
+#logout-btn{
+  position: absolute;
+  right: 30px;
+  top: 15px;
+  width: 150px;
+  padding: 5px;
+  background-color: transparent;
+  color: $yellow-color;
+  border: 1px solid $yellow-color;
+  border-radius: 0;
+  font-weight: 500;
+  margin: 10px 0;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+#new-item-aside{
+  float: left;
+  padding: 50px 30px;
+  span{
+    display: block;
+  }
+  select{
+    font-size: 0.9rem;
+    margin-top: 10px;
+    padding: 7px;
+    width: 265px;
+  }
+  input[type='button'] {
+    background-color: $yellow-color;
+    color: #000000;
+    border: 0 none;
+    border-radius: 0;
+    font-weight: 500;
+    margin: 10px 0;
+    width: 265px;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    cursor: pointer;
+  }
+
+
+}
+
+#table-items{
+
+}
+

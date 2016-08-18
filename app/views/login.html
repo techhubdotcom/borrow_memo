@@ -1,0 +1,11 @@
+<section id="login">
+    <form id="login_form" name="login_form" ng-submit="loginUser()">
+        <div class="input-group">
+            <input type="email" name="email" class="form-control" placeholder="Email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" ng-model="loginUserData.email" required>
+        </div>
+        <div class="input-group">
+            <input type="password" name="password" class="form-control" placeholder="Password" ng-model="loginUserData.password" required>
+        </div>
+        <input type="submit" class="btn btn-default" ng-disabled="login_form.email.$invalid || login_form.password.$invalid || login_form.$pristine" value="Sign In">
+    </form>
+</section>

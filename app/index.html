@@ -3,18 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Borrow memo</title>
+    <link rel="stylesheet" href="styles/css/ngDialog.min.css">
+    <link rel="stylesheet" href="styles/css/ngDialog-theme-default.min.css">
     <link rel="stylesheet" href="styles/css/main.css">
 </head>
 <body ng-app="borrow_memo">
-    <div class="container">
+    <div id="menu-container" ng-controller="MainCtrl">
 
         <header>Borrow Memo</header>
-        <nav ng-controller="">
+        <nav ng-hide="!security.isAuthenticatedUser()">
             <ul class="nav nav-tabs">
-                <li role="presentation" ng-class = "{'active' : $location.path() == '/london'}"><a href="#/london">London</a></li>
-                <li role="presentation" ng-class = "{'active' : $location.path() == '/madrid'}"><a href="#/madrid">Madrid</a></li>
-                <li role="presentation" ng-class = "{'active' : $location.path() == '/warsaw'}"><a href="#/warsaw">Warsaw</a></li>
                 <li role="presentation" ng-class = "{'active' : $location.path() == '/banglore'}"><a href="#/banglore">Banglore</a></li>
+                <li role="presentation" ng-class = "{'active' : $location.path() == '/warsaw'}"><a href="#/warsaw">Warsaw</a></li>
+                <li role="presentation" ng-class = "{'active' : $location.path() == '/madrid'}"><a href="#/madrid">Madrid</a></li>
+                <li role="presentation" ng-class = "{'active' : $location.path() == '/london'}"><a href="#/london">London</a></li>
+
+
             </ul>
         </nav>
         <selection ng-view></selection>
@@ -22,13 +26,37 @@
 
 
     <!--scripts-->
-    <script src="scripts/app.js"></script>
+
     <script src="libs/angular.min.js"></script>
-    <script src="libs/angular-ui-router.min.js"></script>
+    <!-- Firebase -->
+    <script src="libs/firebase.js"></script>
+
+    <!-- AngularFire -->
+    <script src="libs/angularfire.min.js"></script>
+    <script src="libs/angular-route.min.js"></script>
+    <script src="libs/ngDialog.min.js"></script>
+
+
+    <script src="scripts/app.js"></script>
+
+    <!--properties-->
+    <script src="scripts/properties/Properties.js"></script>
+
+    <!--services-->
+    <script src="scripts/services/AuthService.js"></script>
+    <script src="scripts/services/DataBaseService.js"></script>
 
     <!--controllers-->
     <script src="scripts/controllers/ItemsListController.js"></script>
     <script src="scripts/controllers/LoginController.js"></script>
+    <script src="scripts/controllers/MainController.js"></script>
+
+    <!--directives-->
+    <script src="scripts/directives/BorrowedItemDirective.js"></script>
+
+
+
+
 
 
 
