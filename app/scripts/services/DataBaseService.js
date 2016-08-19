@@ -5,14 +5,16 @@ angular.module('borrow_memo').service('DataBaseService', ['Properties', '$q', fu
 
    var database = firebase.database();
 
-    //Item schema:
-    /*var postData = {
-        date: 'date',
-        location: 'string',
-        name: 'string',
-        company: 'string',
-        item: 'string'
-    };*/
+    //Schema:
+    /*
+        {
+            date: 'date',
+            location: 'string',
+            name: 'string',
+            company: 'string',
+            item: 'string'
+        };
+    */
 
 
     this.saveItem=function(postData){
@@ -59,6 +61,7 @@ angular.module('borrow_memo').service('DataBaseService', ['Properties', '$q', fu
     };
 
 
+    //returns promise
     this.selectAsReturned = function(item){
         var udpateItemRef = firebase.database().ref(Properties.DATABASE_ENDPOINT + "/" + item.key );
         return udpateItemRef.update({

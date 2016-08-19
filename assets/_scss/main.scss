@@ -15,7 +15,7 @@ header{
 }
 
 .ngdialog.ngdialog-theme-default .ngdialog-content{
-  width: 350px;
+  min-width: 350px;
   text-align: center;
 }
 .ngdialog.ngdialog-theme-default .ngdialog-button{
@@ -60,12 +60,12 @@ li{
     margin: 70px 30px 40px;
   }
   .header-text{
-    font-size: 3rem;
     font-weight: bold;
     width: 400px;
     position: absolute;
 
     &.main-page{
+      font-size: 3rem;
       margin-left: -190px;
       margin-top: -200px;
       top: 50%;
@@ -75,6 +75,7 @@ li{
     &.no-main-page{
       left: 30px;
       top: 15px;
+      font-size: 2.2rem;
     }
 
   }
@@ -181,6 +182,7 @@ li{
     text-align: center;
     border: 1px solid #dddddd;
     padding: 10px;
+    background-color: white;
   }
   #table-borrow{
     clear: right;

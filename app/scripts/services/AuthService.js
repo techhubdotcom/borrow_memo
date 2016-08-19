@@ -3,12 +3,24 @@
  */
 angular.module('borrow_memo').service('AuthService',[ 'Properties', function(Properties){
     var isAuthentificated = false;
-    var authentificatedUser = {};
-
 
 
     firebase.initializeApp(Properties.FIREBASE_CONFIG);
-    var rootRef = firebase.database().ref();
+    //var rootRef = firebase.database().ref();
+
+
+    this.getAuth = function(){
+        debugger;
+        var authData =  firebase.auth().ref().getAuth();
+        if (authData) {
+            isAuthentificated = true;
+            return true;
+        } else {
+            isAuthentificated = false;
+            return false;
+        }
+
+    }
 
 
     //Email/Password login

@@ -12,17 +12,22 @@ bm.config(['$routeProvider', function($routeProvider) {
     var commonData = function(city){
        var value =
         {
-            templateUrl: 'views/itemslist.html',
-            controller: 'ItemsListCtrl',
-            resolve:{
-            BorrowedItems:['DataBaseService', function(DataBaseService){
-                return DataBaseService.getItems(city);
-            }]
+            templateUrl: 'views/mainActivityPage.html',
+            controller: 'MainActivityCtrl',
+            resolve: {
+                BorrowedItems: ['DataBaseService', function (DataBaseService) {
+                    return DataBaseService.getItems(city);
+                }],
+                SelectedCity: function () {
+                    return city;
+                }
             },
-            authRequired: true
-        }
+            access: {
+                requiredLogin: true
+            }
+        };
         return value;
-    }
+    };
 
     $routeProvider.
         when('/login', {
@@ -38,30 +43,57 @@ bm.config(['$routeProvider', function($routeProvider) {
         });
 }]);
 
-bm.run(function($rootScope, $window, $location, AuthService) {
+bm.run(function($rootScope, $window, $location, AuthService, $route) {
+    var isCheckedState = false; //used during the refresh;
+                                //refreshed caused return to login
 
     firebase.auth().onAuthStateChanged(function(authData) {
-        if (authData) {
-            console.log("User: " + authData.email);
-            AuthService.setIsAuthenticated(true);
+        isCheckedState=true;
+        if (authData){
+            AuthService.setIsAuthenticated(true); //necessary for refresh of website
+            var path = $location.path();
             $rootScope.$apply(function() {
-                $location.path("/london");
-                console.log($location.path());
+                $location.path(path);
             });
 
-        } else{
+        }else{
+            isCheckedState=true;
             console.log("User not logged");
-            AuthService.setIsAuthenticated(false);
             $rootScope.$apply(function() {
                 $location.path("/login");
                 console.log($location.path());
             });
+            AuthService.setIsAuthenticated(false);
+
+
 
         }
     });
 
+    $rootScope.$on( "$routeChangeStart", function(event, next, current) {
+        var auth = AuthService.isAuthenticatedUser();
+        if ((next.access && next.access.requiredLogin) && !auth && isCheckedState) {
+            debugger;
+            $location.path("/login");
+        }
+        //no redirect authentificated user to login:
+        else if (auth && ((next.redirectTo!=undefined && next.redirectTo.localeCompare('/login')==0)
+         || (next.$$route!=undefined && next.$$route.originalPath!=undefined && next.$$route.originalPath.localeCompare('/login')==0)) ){
+            if (current.$$route!=undefined){
+                $location.path(current.$$route.originalPath);
+            }else{
+                $location.path('/london');
+            }
+        }
+
+
+    });
+
+
+
 
 
 });
+
 
 
