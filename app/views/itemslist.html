@@ -3,25 +3,29 @@
 <input type="button" id="logout-btn" value="Sign out" ng-click="logoutUser()"/>
 
 <aside id="new-item-aside">
-    <div>
-        <span>Full Name:</span><input type="text" placeholder="Jono the sword master" ng-model="postData.name" required/>
-    </div>
-    <div>
-        <span>Company:</span><input type="text" placeholder="TechHub" ng-model="postData.company" ng-model="postData.company" required/>
-    </div>
-    <div>
-        <span>What is being borrowed?</span><input type="text" placeholder="HDMI cable, Paper cutter..." ng-model="postData.item" required/>
-    </div>
-    <div>
-        <select name="Location" ng-model="postData.location">
-            <option value="London">London</option>
-            <option value="Madrid">Madrid</option>
-            <option value="Warsaw">Warsaw</option>
-            <option value="Banglore">Banglore</option>
-        </select>
-    </div>
+    <form name="createForm">
+        <div>
+            <span>Full Name:</span><input type="text" placeholder="Jono the sword master" ng-model="postData.name" required/>
+        </div>
+        <div>
+            <span>Company:</span><input type="text" placeholder="TechHub" ng-model="postData.company" ng-model="postData.company" required/>
+        </div>
+        <div>
+            <span>What is being borrowed?</span><input type="text" placeholder="HDMI cable, Paper cutter..." ng-model="postData.item" required/>
+        </div>
+        <div>
+            <select name="Location" ng-model="postData.location">
+                <option value="" disabled selected>Select location</option>
+                <option value="london">London</option>
+                <option value="madrid">Madrid</option>
+                <option value="warsaw">Warsaw</option>
+                <option value="banglore">Banglore</option>
+            </select>
+        </div>
 
-    <input type="button" value="Add memo" ng-click="saveItem(postData)"/>
+        <input type="button" value="Add memo" ng-click="saveItem(postData, createForm)"/>
+    </form>
+
 </aside>
 
 <section id="search-details">
@@ -47,7 +51,7 @@
         </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="item in items" borrowed-element item="item"></tr>
+            <tr ng-repeat="item in items | orderBy:'date'" borrowed-element update-controller="updateController(item)" item="item"></tr>
 
 
         </tbody>

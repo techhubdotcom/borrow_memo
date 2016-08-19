@@ -1,8 +1,8 @@
 <tr>
-    <td>{{item.date}}</td>
-    <td>{{item.location}}</td>
-    <td>{{item.name}}</td>
-    <td>{{item.company}}</td>
+    <td>{{convertedDate}}</td>
+    <td>{{item.location | capitalize}}</td>
+    <td>{{item.name | capitalize}}</td>
+    <td>{{item.company | capitalize}}</td>
     <td>{{item.item}}</td>
     <td><input type="button" value="Returned" ng-show='!item.returned' ng-click="selectItemAsReturned()"/>
         <span ng-show='item.returned'>Item returned</span>

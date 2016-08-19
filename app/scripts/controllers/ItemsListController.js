@@ -11,23 +11,33 @@ angular.module('borrow_memo').controller('ItemsListCtrl', ['$scope', 'AuthServic
     $scope.showReturned = function(){
         $scope.showedBorrowed=false;
         $scope.items=BorrowedItems.resultListReturned;
-    }
+    };
 
     $scope.showBorrowed = function(){
         $scope.showedBorrowed=true;
         $scope.items=BorrowedItems.resultListNoReturned;
-    }
+    };
 
 
 
     $scope.logoutUser = function() {
         AuthService.logout().then(function(data){
                 //success
-                console.log("Logout succed");
+                console.log("Logout succeed");
             }, function(errMsg){
                 console.log("Logout failed: ", errMsg);
             }
         );
+    };
+
+
+    $scope.updateController = function(item){
+        if (item!==undefined &&  $scope.showedBorrowed==true){
+            var ind = $scope.items.indexOf(item);
+            //$scope.items.splice(ind, 1);
+            BorrowedItems.resultListNoReturned.splice(ind, 1);
+            BorrowedItems.resultListReturned.push(item);
+        }
     };
 
 
@@ -43,11 +53,17 @@ angular.module('borrow_memo').controller('ItemsListCtrl', ['$scope', 'AuthServic
 
             $scope.postData.date = new Date();
             $scope.postData.returned = false;
-            DataBaseService.saveItem(postData).then(function(data){
+            DataBaseService.saveItem(post).then(function(data){
+                    if ($scope.showedBorrowed==true) { //only for borrowed;
+                        $scope.postData.key=data.key;
+                        //$scope.items.push($scope.postData);
+                        BorrowedItems.resultListNoReturned.push($scope.postData);
+                    }
                     ngDialog.open({
                         template: '<div class="ngdialog-theme-default saved-info">Saved correctly</div>',
                         plain: 'true'
                     });
+
                 }, function(errMsg){
                     ngDialog.open({
                         template: '<div class="ngdialog-theme-default saved-info">{{errMsg}}</div>',
@@ -59,10 +75,11 @@ angular.module('borrow_memo').controller('ItemsListCtrl', ['$scope', 'AuthServic
         }
     }
 
-
-
-
-
-
 }]);
+
+angular.module('borrow_memo').filter('capitalize', function() {
+    return function(input) {
+        return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
+    }
+});
 

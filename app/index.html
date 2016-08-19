@@ -10,7 +10,7 @@
 <body ng-app="borrow_memo">
     <div id="menu-container" ng-controller="MainCtrl">
 
-        <header>Borrow Memo</header>
+        <header><span class="header-text" ng-class = "{'main-page' : !security.isAuthenticatedUser(), 'no-main-page' : security.isAuthenticatedUser() }">Borrow Memo</span></header>
         <nav ng-hide="!security.isAuthenticatedUser()">
             <ul class="city-tabs">
                 <li role="presentation" ng-class = "{'active' : $location.path() == '/banglore'}"><a href="#/banglore">Banglore</a></li>
@@ -24,12 +24,8 @@
 
 
     <!--scripts-->
-
     <script src="libs/angular.min.js"></script>
-    <!-- Firebase -->
     <script src="libs/firebase.js"></script>
-
-    <!-- AngularFire -->
     <script src="libs/angularfire.min.js"></script>
     <script src="libs/angular-route.min.js"></script>
     <script src="libs/ngDialog.min.js"></script>
@@ -51,12 +47,6 @@
 
     <!--directives-->
     <script src="scripts/directives/BorrowedItemDirective.js"></script>
-
-
-
-
-
-
 
 
 </body>

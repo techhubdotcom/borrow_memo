@@ -7,6 +7,7 @@ body{
   width: 100vw;
   height: 100vh;
   font-family: $fonts;
+  outline:none;
 }
 
 header{
@@ -17,10 +18,16 @@ header{
   width: 350px;
   text-align: center;
 }
+.ngdialog.ngdialog-theme-default .ngdialog-button{
+  float: none;
+  background-color: #e0e0e0;
+  margin: 8px 0 0 0.5em;
+  padding: 0.6em 1.6em;
+}
 
 input {
   width: 250px;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   //font-family: $fonts;
   border: none;
   padding: 8px;
@@ -52,6 +59,25 @@ li{
   li{
     margin: 70px 30px 40px;
   }
+  .header-text{
+    font-size: 3rem;
+    font-weight: bold;
+    width: 400px;
+    position: absolute;
+
+    &.main-page{
+      margin-left: -190px;
+      margin-top: -200px;
+      top: 50%;
+      left: 50%;
+      text-align: center;
+    }
+    &.no-main-page{
+      left: 30px;
+      top: 15px;
+    }
+
+  }
 }
 
 #login{
@@ -71,11 +97,6 @@ li{
     }
   }
 
-
-
-  input.ng-invalid.ng-dirty{
-    //border: 1px solid $red-color;
-  }
 
   input[type='submit'] {
     background-color: $yellow-color;
@@ -114,15 +135,18 @@ li{
 
 #new-item-aside{
   float: left;
-  padding: 50px 30px;
+  margin: 205px 0 0 30px;
   span{
     display: block;
+    margin: 10px 0 3px;
+    font-size: 0.9rem;
   }
   select{
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     margin-top: 10px;
-    padding: 7px;
-    width: 265px;
+    padding-bottom: 6px;
+    padding-top: 6px;
+    width: 270px;
   }
   input[type='button'] {
     background-color: $yellow-color;
@@ -151,21 +175,27 @@ li{
 
 
 #table-items{
-  margin: 80px 80px 0 20px
-  td{
-    width:100px;
+  margin: 80px 30px 0 20px;
+  td, th{
+    width:110px;
     text-align: center;
+    border: 1px solid #dddddd;
+    padding: 10px;
   }
   #table-borrow{
     clear: right;
     float: right;
+    border-collapse: collapse;
+    margin-bottom: 50px;
+
   }
   input[type='button'] {
     border: medium none;
     font-size: 0.9rem;
     padding: 5px;
     width: 80px;
-    background-color: #bebebe;
+    background-color: #e0e0e0;
+    cursor: pointer;
   }
 
 }

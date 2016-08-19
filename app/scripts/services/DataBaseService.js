@@ -5,7 +5,7 @@ angular.module('borrow_memo').service('DataBaseService', ['Properties', '$q', fu
 
    var database = firebase.database();
 
-    //Item:
+    //Item schema:
     /*var postData = {
         date: 'date',
         location: 'string',
@@ -21,8 +21,20 @@ angular.module('borrow_memo').service('DataBaseService', ['Properties', '$q', fu
         var updates = {};
         updates["/" + Properties.DATABASE_ENDPOINT + "/" + newItemKey] = postData;
 
-        return firebase.database().ref().update(updates);
+        var promise = firebase.database().ref().update(updates).then(function(data){
+            if (data!=undefined){
+                data.key=newItemKey;
+            }else{
+                data={};
+                data.key=newItemKey;
+            }
+
+            return data;
+        });
+        return promise;
     };
+
+
 
     //Returns promise
     this.getItems = function(location){
@@ -44,15 +56,13 @@ angular.module('borrow_memo').service('DataBaseService', ['Properties', '$q', fu
             return result;
         });
         return promise;
-    }
+    };
 
-    this.selectAsRemoved = function(item){
-        //item.returned=true;
+
+    this.selectAsReturned = function(item){
         var udpateItemRef = firebase.database().ref(Properties.DATABASE_ENDPOINT + "/" + item.key );
-        //debugger;
         return udpateItemRef.update({
             "returned": true});
-
     }
 
 

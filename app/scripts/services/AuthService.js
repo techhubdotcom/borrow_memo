@@ -1,19 +1,13 @@
 /**
  * Created by izabela on 17/08/16.
  */
-angular.module('borrow_memo').service('AuthService', function(){
+angular.module('borrow_memo').service('AuthService',[ 'Properties', function(Properties){
     var isAuthentificated = false;
     var authentificatedUser = {};
 
 
-    var config = {
-        apiKey: "AIzaSyCOu7W5SkqB4wuuFBzzJCWQtK-rNM10H0M",
-        authDomain: "borrowmemo-140620.firebaseapp.com",
-        databaseURL: "https://borrowmemo-140620.firebaseio.com",
-        storageBucket: "borrowmemo-140620.appspot.com",
-    };
 
-    firebase.initializeApp(config);
+    firebase.initializeApp(Properties.FIREBASE_CONFIG);
     var rootRef = firebase.database().ref();
 
 
@@ -39,4 +33,4 @@ angular.module('borrow_memo').service('AuthService', function(){
 
 
 
-});
+}]);
