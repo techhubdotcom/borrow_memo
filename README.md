@@ -1,4 +1,6 @@
 ##Project details:
+
+
 Structure:
 
 ```
@@ -32,7 +34,7 @@ Main technologies used in the project:
 
 Information about the project:
 
-The public part of the project is located in the ```app``` folder. It contains all necessary files and libraries to run the application. It doesn't require the instalation of the dependencies, but it's possible to recover 'node_modules' (for  example to can use them in development mode) using NPM and running:```npm update```
+The public part of the project is located in the ```app``` folder. It contains all necessary files and libraries to run the application. It doesn't require the installation of the dependencies, but it's possible to recover 'node_modules' (for  example to can use them in development mode) using NPM and running:```npm update```
 Also there is possible to recover 'bower_componets' using ```bower update```
 
 Files with styles were created using scss and the conversion was made by Gulp task.
@@ -53,7 +55,7 @@ Please also update libraries:
 Some Gulp tasks were created in order to simplify the creation of the project:
 gulp styles - converts scss files into css;
 
-gulp copy - copies interesting us .js files from node_modules and bower_componets into app/libs; if someone would like to add some new library there is neccesary to update paths in the file gulpfile.js;
+gulp copy - copies interesting us .js files from node_modules and bower_componets into app/libs; if someone would like to add some new library there is necessary to update paths in the file gulpfile.js;
 
 gulp_css - copies interesting us files .css from node_modules and bower_componets to the app/styles;
 
@@ -68,6 +70,6 @@ The project allows users to login using an email and a password. In order not to
 
 The main page presents the part which allows create a new borrowed item and the table with borrowed things. I divided the data into two parts first shows only borrowed and not returned things (link 'borrowed'). Second - items already returned (link 'Returned').
 
-There is an opption to change the location using links presented on the website or by url:```<path>#/madrid```
+There is an option to change the location using links presented on the website or by url:```<path>#/madrid```
 
 There is also an option to change the state of the items from borrowed to returend.
