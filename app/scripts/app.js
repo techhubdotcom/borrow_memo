@@ -73,7 +73,7 @@ bm.run(function($rootScope, $window, $location, AuthService, $route) {
     $rootScope.$on( "$routeChangeStart", function(event, next, current) {
         var auth = AuthService.isAuthenticatedUser();
         if ((next.access && next.access.requiredLogin) && !auth && isCheckedState) {
-            debugger;
+            //debugger;
             $location.path("/login");
         }
         //no redirect authentificated user to login:
