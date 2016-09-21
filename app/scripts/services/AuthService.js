@@ -22,6 +22,7 @@ angular.module('borrow_memo').service('AuthService',[ 'Properties', function(Pro
 
 
     this.isAuthenticatedUser = function(){
+
         return isAuthentificated;
     };
 

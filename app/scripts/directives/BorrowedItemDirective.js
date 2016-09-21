@@ -7,7 +7,7 @@ angular.module('borrow_memo').directive('borrowedElement',['ngDialog','DataBaseS
         templateUrl: 'views/borrowedElement.html',
         scope : {
             item : '=',
-            updateController :'&'
+            //updateController :'&'
         },
         link:function(scope){
 
@@ -29,7 +29,7 @@ angular.module('borrow_memo').directive('borrowedElement',['ngDialog','DataBaseS
                 }).then(function(item){
                     if (item!=undefined){
                         DataBaseService.selectAsReturned(item).then(function(data){
-                                scope.updateController({item:item});
+                                //scope.updateController({item:item});
                                 ngDialog.open({
                                     template: '<div class="ngdialog-theme-default saved-info">Changed correctly</div>',
                                     plain: 'true'

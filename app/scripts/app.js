@@ -16,7 +16,7 @@ bm.config(['$routeProvider', function($routeProvider) {
             controller: 'MainActivityCtrl',
             resolve: {
                 BorrowedItems: ['DataBaseService', function (DataBaseService) {
-                    return DataBaseService.getItems(city);
+                    return DataBaseService.getItemsOnce(city);
                 }],
                 SelectedCity: function () {
                     return city;
@@ -53,7 +53,12 @@ bm.run(function($rootScope, $window, $location, AuthService, $route) {
             AuthService.setIsAuthenticated(true); //necessary for refresh of website
             var path = $location.path();
             $rootScope.$apply(function() {
-                $location.path(path);
+                if (path=='/login'){
+                    $location.path('/london');
+                }else {
+                    $location.path(path);
+                }
+
             });
 
         }else{
@@ -73,7 +78,6 @@ bm.run(function($rootScope, $window, $location, AuthService, $route) {
     $rootScope.$on( "$routeChangeStart", function(event, next, current) {
         var auth = AuthService.isAuthenticatedUser();
         if ((next.access && next.access.requiredLogin) && !auth && isCheckedState) {
-            //debugger;
             $location.path("/login");
         }
         //no redirect authentificated user to login:
