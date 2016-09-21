@@ -7,6 +7,9 @@ angular.module('borrow_memo').controller('MainActivityCtrl', ['$scope', 'AuthSer
         var selectedCity = SelectedCity;
 
 
+        $scope.postData.location=selectedCity;
+
+
        /*DataBaseService.getItems(selectedCity).then(
             function(data) {
                 console.log("Result returned by a promise");
@@ -75,6 +78,8 @@ angular.module('borrow_memo').controller('MainActivityCtrl', ['$scope', 'AuthSer
         };
 
 
+
+
         $scope.updateController = function(item){
             if (item!==undefined &&  $scope.showedBorrowed==true){
                 var ind = $scope.items.indexOf(item);
@@ -103,6 +108,7 @@ angular.module('borrow_memo').controller('MainActivityCtrl', ['$scope', 'AuthSer
                             plain: 'true'
                         });
                         $scope.postData={};
+                        $scope.postData.location=selectedCity;
 
                     }, function(errMsg){
                         ngDialog.open({

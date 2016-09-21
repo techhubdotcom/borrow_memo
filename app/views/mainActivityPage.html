@@ -14,7 +14,7 @@
             <span>What is being borrowed?</span><input type="text" placeholder="HDMI cable, Paper cutter..." ng-model="postData.item" required/>
         </div>
         <div>
-            <select name="Location" ng-model="postData.location">
+            <select name="Location" ng-model="postData.location" id="location_select" disabled>
                 <option value="" disabled selected>Select location</option>
                 <option value="london">London</option>
                 <option value="madrid">Madrid</option>
@@ -52,7 +52,7 @@
         </thead>
         <tbody>
             <!--<tr ng-repeat="item in items | orderBy:'date'" borrowed-element update-controller="updateController(item)" item="item"></tr>-->
-            <tr ng-repeat="item in items | orderBy:'date'" borrowed-element update-controller="updateController(item)" item="item">
+            <tr ng-repeat="item in items | orderBy:'-date'" borrowed-element update-controller="updateController(item)" item="item">
 
 
         </tbody>
