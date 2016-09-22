@@ -75,6 +75,9 @@ input, .add-memo {
     font-weight: bold;
     width: 400px;
     @media screen and (min-width: 900px) {
+        position: absolute;
+    }
+    &.main-page{
       position: absolute;
     }
 
@@ -127,9 +130,11 @@ input, .add-memo {
 
 @media screen and (max-width: 900px) {
   #menu-container .header-text {
-    position: relative;
-    margin-top: 10px;
-    margin-left: 30px;
+    &.no-main-page{
+      position: relative;
+      margin-top: 10px;
+      margin-left: 30px;
+    }
   }
 }
 
