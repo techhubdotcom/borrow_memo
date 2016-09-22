@@ -12,8 +12,10 @@ var paths = {
     'bower':'./bower_components',
     'assets':"./assets",
     'libs': [
-        './bower_components/angular/angular.min.js',
-        './bower_components/angular-route/angular-route.min.js',
+        './node_modules/angular/angular.min.js',
+        './node_modules/angular/angular.min.js.map',
+        './node_modules/angular-route/angular-route.min.js',
+        './node_modules/angular-route/angular-route.min.js.map',
         './bower_components/ng-dialog/js/ngDialog.min.js',
         './bower_components/angularfire/dist/angularfire.min.js',
         './bower_components/firebase/firebase.js'
