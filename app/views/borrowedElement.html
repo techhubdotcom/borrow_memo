@@ -4,7 +4,7 @@
     <td>{{item.name | capitalize}}</td>
     <td>{{item.company | capitalize}}</td>
     <td>{{item.item}}</td>
-    <td><input type="button" value="Returned" ng-show='!item.returned' ng-click="selectItemAsReturned()"/>
+    <td><button class="btn btn-success" ng-show='!item.returned' ng-click="selectItemAsReturned()"><i class="glyphicon glyphicon-ok"]></i>Returned</button>
         <span ng-show='item.returned'>Item returned</span>
     </td>
 </tr>

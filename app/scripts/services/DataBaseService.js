@@ -59,8 +59,6 @@ angular.module('borrow_memo').service('DataBaseService', ['Properties', '$q', fu
 
 
 
-
-
     //Returns promise
     this.getItems = function(location){
         var itemsRef = firebase.database().ref(Properties.DATABASE_ENDPOINT).orderByChild('location').equalTo(location);
@@ -90,11 +88,7 @@ angular.module('borrow_memo').service('DataBaseService', ['Properties', '$q', fu
     this.selectAsReturned = function(item){
         var udpateItemRef = firebase.database().ref(Properties.DATABASE_ENDPOINT + "/" + item.key );
         return udpateItemRef.update({
-            "returned": true});
-    }
-
-
-
-
-
+            "returned": true,
+            "date": new Date()});
+    };
 }]);

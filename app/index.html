@@ -5,14 +5,17 @@
     <title>Borrow memo</title>
     <link rel="stylesheet" href="styles/css/ngDialog.min.css">
     <link rel="stylesheet" href="styles/css/ngDialog-theme-default.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/css/main.css">
 </head>
 <body ng-app="borrow_memo">
     <div id="menu-container" ng-controller="MainCtrl">
 
+
+
         <header><span class="header-text" ng-class = "{'main-page' : !security.isAuthenticatedUser(), 'no-main-page' : security.isAuthenticatedUser() }">Borrow Memo</span></header>
         <nav ng-hide="!security.isAuthenticatedUser()">
-            <ul class="city-tabs">
+            <ul class="nav nav-pills">
                 <li role="presentation" ng-class = "{'active' : $location.path() == '/banglore'}"><a href="#/banglore">Banglore</a></li>
                 <li role="presentation" ng-class = "{'active' : $location.path() == '/warsaw'}"><a href="#/warsaw">Warsaw</a></li>
                 <li role="presentation" ng-class = "{'active' : $location.path() == '/madrid'}"><a href="#/madrid">Madrid</a></li>

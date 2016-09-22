@@ -1,60 +1,70 @@
 
 
-<input type="button" id="logout-btn" value="Sign out" ng-click="logoutUser()"/>
-
-<aside id="new-item-aside">
-    <form name="createForm" novalidate>
-        <div>
-            <span>Full Name:</span><input type="text" placeholder="Jono the sword master" ng-model="postData.name" required/>
-        </div>
-        <div>
-            <span>Company:</span><input type="text" placeholder="TechHub" ng-model="postData.company" ng-model="postData.company" required/>
-        </div>
-        <div>
-            <span>What is being borrowed?</span><input type="text" placeholder="HDMI cable, Paper cutter..." ng-model="postData.item" required/>
-        </div>
-        <div>
-            <select name="Location" ng-model="postData.location" id="location_select" disabled>
-                <option value="" disabled selected>Select location</option>
-                <option value="london">London</option>
-                <option value="madrid">Madrid</option>
-                <option value="warsaw">Warsaw</option>
-                <option value="banglore">Banglore</option>
-            </select>
-        </div>
-
-        <input type="button" value="Add memo" ng-click="saveItem(postData, createForm)"/>
-    </form>
-
-</aside>
+<!--<input type="button" id="logout-btn" value="Sign out" ng-click="logoutUser()"/>-->
 
 <section id="search-details">
-        <ul class="borrows-tabs">
+        <ul class="nav nav-pills">
             <li role="presentation" ng-class = "{'active' : showedBorrowed == false}"><a ng-click="showReturned()">Returned</a></li>
             <li role="presentation" ng-class = "{'active' : showedBorrowed == true}"><a ng-click="showBorrowed()">Borrowed</a></li>
         </ul>
 </section>
 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3">
+
+            <aside id="new-item-aside">
+                <form name="createForm" novalidate>
+                    <div>
+                        <span>Full Name:</span><input type="text" class="form-control" placeholder="Jono the sword master" ng-model="postData.name" required/>
+                    </div>
+                    <div>
+                        <span>Company:</span><input type="text" class="form-control" placeholder="TechHub" ng-model="postData.company" ng-model="postData.company" required/>
+                    </div>
+                    <div>
+                        <span>What is being borrowed?</span><input type="text" class="form-control" placeholder="HDMI cable, Paper cutter..." ng-model="postData.item" required/>
+                    </div>
+                    <div>
+                        <select name="Location" ng-model="postData.location" id="location_select" class="form-control"  disabled>
+                            <option value="" disabled selected>Select location</option>
+                            <option value="london">London</option>
+                            <option value="madrid">Madrid</option>
+                            <option value="warsaw">Warsaw</option>
+                            <option value="banglore">Banglore</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-lg btn-primary bottom add-memo" ng-click="saveItem(postData, createForm)"><i class="glyphicon glyphicon-plus"></i> Add memo</button>
+                    <!--<input type="button" value="Add memo" ng-click="saveItem(postData, createForm)"/>-->
+                </form>
+
+            </aside>
+        </div>
+        <div class="col-sm-9">
+            <section id="table-items">
+                <div class="table-responsive">
+                    <!--<table id="table-borrow" class="table-bordered">-->
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Location</th>
+                            <th>Name</th>
+                            <th>Company</th>
+                            <th>Item</th>
+                            <th>Returned</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr ng-repeat="item in items | orderBy:'-date'" borrowed-element update-controller="updateController(item)" item="item">
 
 
-<section id="table-items">
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
 
-    <table id="table-borrow">
-        <thead>
-        <tr>
-            <th>Date</th>
-            <th>Location</th>
-            <th>Name</th>
-            <th>Company</th>
-            <th>Item</th>
-            <th>Returned</th>
-        </tr>
-        </thead>
-        <tbody>
-            <!--<tr ng-repeat="item in items | orderBy:'date'" borrowed-element update-controller="updateController(item)" item="item"></tr>-->
-            <tr ng-repeat="item in items | orderBy:'-date'" borrowed-element update-controller="updateController(item)" item="item">
+    </div>
+</div>
 
-
-        </tbody>
-    </table>
-</section>
