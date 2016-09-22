@@ -20,8 +20,12 @@ angular.module('borrow_memo').controller('LoginCtrl', ['$scope', 'AuthService','
                     });
                 }, function(errMsg){
                     console.log("Authentication failed: ", errMsg);
-                    window.alert(errMsg.message);
-                }
+                    //window.alert(errMsg.message);
+                    ngDialog.open({
+                        template: '<div class="ngdialog-theme-default saved-info">Invalid email or password.</div>',
+                        plain: 'true'
+                     });
+                    }
             );
         };
 

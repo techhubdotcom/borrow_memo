@@ -3,7 +3,7 @@
  */
 angular.module('borrow_memo').constant('Properties', {
     DATABASE_ENDPOINT: 'borrowed-items',
-    IREBASE_CONFIG: { 
+    FIREBASE_CONFIG: { 
         apiKey: "AIzaSyCnKPlqPqH8Fiil_8JFqXIrYauksyZnRYw",
         authDomain: "th-borrow-memo.firebaseapp.com",
         databaseURL: "https://th-borrow-memo.firebaseio.com",
